@@ -15,7 +15,7 @@ public class ParteServidor extends SaludosYAgradecimientos_impl {
         if (esteServidorEstaParado) {
             try {
                 SaludosYAgradecimientos_impl saludador = new SaludosYAgradecimientos_impl();
-                SaludosYAgradecimientos stubSaludador = (SaludosYAgradecimientos) UnicastRemoteObject.exportObject(saludador, 8888);
+                SaludosYAgradecimientos stubSaludador = (SaludosYAgradecimientos) UnicastRemoteObject.exportObject(saludador, 8881);
                 ////Si este servidor va a utilizar un registro de servicios que ya este activo en nuestro sistema, usar LocateRegistry.getRegistry
                 Registry registroDeServicios = LocateRegistry.getRegistry();
                 ////Si este servidor va a crear su propio registro de servicios, usar LocateRegistry.createRegistry
@@ -23,7 +23,7 @@ public class ParteServidor extends SaludosYAgradecimientos_impl {
                 registroDeServicios.bind("SaludosYAgradecimientosVarios", stubSaludador);
                 esteServidorEstaParado = false;
             } catch (Exception e) {
-                System.err.println("Fallo al iniciar el SERVIDOR: " + e.toString());
+                System.err.println("Fallo al iniciar el SERVIDOR de saludos: " + e.toString());
                 e.printStackTrace();
             }
         }
