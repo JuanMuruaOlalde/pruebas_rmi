@@ -20,4 +20,8 @@ public class ParteCliente {
     public void saludar() throws RemoteException {
         System.out.println(stubSaludador.getSaludo());
     }
+
+    public void agradecerA(String aQuien) throws RemoteException {
+        System.out.println(stubSaludador.getAgradecimiento(aQuien));
+    }
 }

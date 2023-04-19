@@ -8,5 +8,10 @@ public class SaludosYAgradecimientos_impl  implements SaludosYAgradecimientos {
     public String getSaludo() throws RemoteException {
         return "Hola, prosperos y felices dias...";
     }
+
+    @Override
+    public String getAgradecimiento(String aQuienAgradecer) throws RemoteException {
+        return "Muchas gracias, " + aQuienAgradecer + ", por todo el trabajo realizado.";
+    }
     
 }
