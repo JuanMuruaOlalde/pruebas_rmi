@@ -1,8 +1,8 @@
-package es.susosise.CalculadorMatematico;
+package es.susosise.PruebaSimple.Servidor;
 
 import java.rmi.RemoteException;
 
-public class CalculadorImpl implements Calculador {
+public class Calculador_impl implements Calculador {
 
     @Override
     public ResultadosDelCalculo calcular(Double a, Double b) throws RemoteException {

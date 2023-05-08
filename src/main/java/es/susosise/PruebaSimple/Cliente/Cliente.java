@@ -1,17 +1,18 @@
-package es.susosise;
+package es.susosise.PruebaSimple.Cliente;
 
-import es.susosise.CalculadorMatematico.Calculador;
-import es.susosise.CalculadorMatematico.ResultadosDelCalculo;
+import es.susosise.PruebaSimple.Servidor.Calculador;
+import es.susosise.PruebaSimple.Servidor.ResultadosDelCalculo;
+import es.susosise.PruebaSimple.Servidor.SaludosYAgradecimientos;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class ParteCliente {
+public class Cliente {
     private SaludosYAgradecimientos stubSaludador;
     private Calculador stubCalculador;
 
-    public ParteCliente() {
+    public Cliente() {
         try {
             Registry registroDeServicios = LocateRegistry.getRegistry();
             stubSaludador = (SaludosYAgradecimientos) registroDeServicios.lookup("SaludosYAgradecimientosVarios");

@@ -1,4 +1,4 @@
-package es.susosise.CalculadorMatematico;
+package es.susosise.PruebaSimple.Servidor;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

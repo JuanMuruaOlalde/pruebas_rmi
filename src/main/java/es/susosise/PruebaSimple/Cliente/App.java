@@ -1,6 +1,4 @@
-package es.susosise;
-
-import es.susosise.CalculadorMatematico.ServidorCalculador;
+package es.susosise.PruebaSimple.Cliente;
 
 import java.rmi.RemoteException;
 import java.util.Scanner;
@@ -9,17 +7,17 @@ public class App
 {
     public static void main( String[] args )
     {
-        ParteRegistradorDeServicios registrador = new ParteRegistradorDeServicios();
-        registrador.arrancar(1099);
+        Cliente cliente = new Cliente();
 
-        ParteServidor servidor = new ParteServidor();
-        servidor.arrancar();
+        try {
+            cliente.saludar();
+        } catch (RemoteException e) {
+            System.err.println("Fallo al intentar saludar: " + e.toString());
+            e.printStackTrace();
+        }
 
-        ServidorCalculador servidorCalculos = new ServidorCalculador();
-        servidorCalculos.arrancar();
-        
-        ParteCliente cliente = new ParteCliente();
         Scanner lectorDeTeclado = new Scanner(System.in);
+        System.out.println();
         System.out.print("Teclea un numero: ");
         Double unNumero = lectorDeTeclado.nextDouble();
         lectorDeTeclado.nextLine();
@@ -33,11 +31,12 @@ public class App
         System.out.println();
         lectorDeTeclado.close();
         try {
-            cliente.saludar();
             cliente.calcularCon(unNumero, otroNumero);
+            System.out.println();
             cliente.agradecerA(nombre);
+            System.out.println();
         } catch (RemoteException e) {
-            System.err.println("Fallo intentar saludar: " + e.toString());
+            System.err.println("Fallo al intentar calcular y agradecer: " + e.toString());
             e.printStackTrace();
         }
     }
