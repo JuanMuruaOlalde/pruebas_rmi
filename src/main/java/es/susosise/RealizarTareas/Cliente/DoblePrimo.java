@@ -1,6 +1,6 @@
 package es.susosise.RealizarTareas.Cliente;
 
-public class DoblePrimo {
+public class DoblePrimo implements java.io.Serializable {
     private Integer unPrimo;
     private Integer otroPrimo;
     private Integer producto;

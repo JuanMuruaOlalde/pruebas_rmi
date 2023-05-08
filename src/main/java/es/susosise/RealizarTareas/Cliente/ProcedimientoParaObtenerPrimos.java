@@ -2,7 +2,7 @@ package es.susosise.RealizarTareas.Cliente;
 
 import es.susosise.RealizarTareas.Servidor.TareaRemota;
 
-public class ProcedimientoParaObtenerPrimos implements TareaRemota<DoblePrimo> {
+public class ProcedimientoParaObtenerPrimos implements TareaRemota<DoblePrimo> , java.io.Serializable {
 
     @Override
     public DoblePrimo ejecutar() {

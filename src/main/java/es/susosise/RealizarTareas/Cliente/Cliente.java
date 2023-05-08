@@ -30,4 +30,9 @@ public class Cliente {
         return stubTrabajador.realizarTarea(obtenerDosPrimos);
     }
 
+    public String concatenar(String texto1, String texto2, String texto3) throws RemoteException {
+        ProcedimientoParaUnirTextos unirTextos = new ProcedimientoParaUnirTextos(texto1, texto2, texto3);
+        return stubTrabajador.realizarTarea(unirTextos);
+    }
+
 }
