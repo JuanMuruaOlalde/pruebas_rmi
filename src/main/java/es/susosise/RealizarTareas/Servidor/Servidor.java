@@ -10,9 +10,15 @@ public class Servidor {
 
     public static void main( String[] args )
     {
-        // if (System.getSecurityManager() == null) {
-        //     System.setSecurityManager(new SecurityManager());
-        // }
+        System.setProperty("java.security.policy", "permisoGeneralParaTodo.policy");
+        //System.setProperty("java.security.policy", "permisosEspecificos.policy");
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+
+        System.setProperty("java.rmi.server.codebase", "http://localhost:8080/");
+        System.setProperty("java.rmi.server.useCodebaseOnly", "false");
+
         try {
             ////Si este servidor va a utilizar un registro de servicios que ya este activo en nuestro sistema, usar LocateRegistry.getRegistry
             Registry registroDeServicios = LocateRegistry.getRegistry();
