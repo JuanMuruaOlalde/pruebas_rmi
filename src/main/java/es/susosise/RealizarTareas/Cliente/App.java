@@ -7,6 +7,14 @@ public class App
 {
     public static void main( String[] args )
     {
+        // dar permiso a todo es siempre mala idea (aunque para pruebas es más cómodo), 
+        // hay que procurar asignar siempre permisos específicos (los mínimos posible)
+        System.setProperty("java.security.policy", "permisoGeneralParaTodo.policy");
+        //System.setProperty("java.security.policy", "permisosEspecificos.policy");
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+
         Cliente cliente = new Cliente();
 
         try {
